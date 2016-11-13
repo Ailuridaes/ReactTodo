@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -30,7 +29,7 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form>
+      <form className="Todo-form">
         Todo:
         <br />
         <input type="text" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Task name" />

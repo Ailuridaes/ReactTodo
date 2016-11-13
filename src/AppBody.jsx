@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import TodoForm from './TodoForm';
 
@@ -14,15 +13,27 @@ class AppBody extends React.Component {
   }
 
   addTodo(todo) {
+    // TODO: assign ID to todo on addition
     this.setState((prevState) => ({
       todos: prevState.todos.concat(todo)
     }));
   }
 
   render() {
+    const todoList = this.state.todos.map((todo) =>
+      <li key={todo.title}>
+        <strong>{todo.title}</strong>
+        <br />
+        {todo.description}
+      </li>
+    );
+
     return (
       <div className="App-body">
         <TodoForm addTodo={this.addTodo} />
+        <ul className="Todo-list">
+          {todoList}
+        </ul>
       </div>
     );
   }
