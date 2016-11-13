@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TodoForm from './TodoForm';
+import Todo from './Todo';
 
 import './App.css';
 
@@ -13,7 +14,7 @@ class AppBody extends React.Component {
   }
 
   addTodo(todo) {
-    // TODO: assign ID to todo on addition
+    // TODO: only add if doesn't already exist
     this.setState((prevState) => ({
       todos: prevState.todos.concat(todo)
     }));
@@ -21,11 +22,7 @@ class AppBody extends React.Component {
 
   render() {
     const todoList = this.state.todos.map((todo) =>
-      <li key={todo.title}>
-        <strong>{todo.title}</strong>
-        <br />
-        {todo.description}
-      </li>
+      <Todo title={todo.title} description={todo.description} key={todo.title} />
     );
 
     return (
