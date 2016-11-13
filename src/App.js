@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import AppBody from './AppBody';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,9 +13,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1>React Todo</h1>
         </div>
-        <p className="App-body">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <AppBody />
       </div>
     );
   }
