@@ -4,6 +4,7 @@ import TodoForm from './TodoForm';
 import Todo from './Todo';
 
 import './App.css';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class AppBody extends React.Component {
   constructor(props) {
@@ -26,12 +27,18 @@ class AppBody extends React.Component {
     );
 
     return (
-      <div className="App-body">
-        <TodoForm addTodo={this.addTodo} />
-        <ul className="Todo-list">
-          {todoList}
-        </ul>
-      </div>
+      <Grid style={{"padding": 20}}>
+        <Row className="show-grid">
+          <Col md={4}>
+            <TodoForm addTodo={this.addTodo} />
+          </Col>
+          <Col md={8}>
+            <ul className="Todo-list">
+              {todoList}
+            </ul>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 

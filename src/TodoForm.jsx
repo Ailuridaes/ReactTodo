@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, ControlLabel, FormControl, FormGroup, Well } from 'react-bootstrap';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -46,16 +47,21 @@ class TodoForm extends React.Component {
 
   render() {
     return (
-      <form className="Todo-form">
-        Todo:
-        <br />
-        <input type="text" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Task name" />
-        <br />
-        { this.state.titleError && <p>{this.state.titleError}</p> }
-        <input type="textarea" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Enter a description..." />
-        <br />
-        <input type="submit" value="Submit" onClick={this.handleSubmit} />
-      </form>
+      <Well>
+        <form>
+          <legend>Add New Todo</legend>
+          <FormGroup>
+            <ControlLabel>Title</ControlLabel>
+            <FormControl type="text" name="title" value={this.state.title} onChange={this.handleChange} placeholder="Task name" />
+            { this.state.titleError && <p>{this.state.titleError}</p> }
+          </FormGroup>
+          <FormGroup>
+            <ControlLabel>Description</ControlLabel>
+            <FormControl componentClass="textarea" name="description" value={this.state.description} onChange={this.handleChange} placeholder="Enter a description..." />
+          </FormGroup>
+          <Button type="submit" onClick={this.handleSubmit} bsStyle="primary">Submit</Button>
+        </form>
+      </Well>
     );
   }
 }

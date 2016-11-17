@@ -3,12 +3,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-.Todo-form, .Todo-list {
-  width: auto;
-  float: left;
-}
-
-.Todo-form {
-  margin-right: 50px;
-}
