@@ -1,13 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Panel } from 'react-bootstrap';
 
 class Todo extends React.Component {
   render () {
     return (
-      <li>
-        <strong>{this.props.title}</strong>
-        <br />
+      <Panel header={this.props.title} collapsible>
         {this.props.description}
-      </li>
+      </Panel>
     )
   }
 }
