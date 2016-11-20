@@ -66,7 +66,7 @@ class TodoForm extends React.Component {
             <ControlLabel>Priority</ControlLabel>
             <FormControl componentClass="select" name="priority" value={this.state.priority} onChange={this.handleChange}>
               <option value="1">High</option>
-              <option selected value="2">Medium</option>
+              <option value="2">Medium</option>
               <option value="3">Low</option>
             </FormControl>
           </FormGroup>
