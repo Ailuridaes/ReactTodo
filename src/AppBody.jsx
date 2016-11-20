@@ -22,7 +22,7 @@ class AppBody extends React.Component {
 
   render() {
     const todoList = this.state.todos.map((todo) =>
-      <Todo title={todo.title} description={todo.description} key={todo.title} />
+      <Todo title={todo.title} description={todo.description} priority={todo.priority} key={todo.title} />
     );
 
     return (
