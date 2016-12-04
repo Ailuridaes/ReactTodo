@@ -2,8 +2,8 @@ import React from 'react';
 
 import AppBody from './AppBody';
 
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 
 class App extends React.Component {
   render() {
