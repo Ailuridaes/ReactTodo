@@ -29,8 +29,8 @@ class TodoForm extends React.Component {
     e.preventDefault();
     // validate that title is filled out
     if (this.state.title.length > 0) {
-      // send new todo to callback provided by AppBody
-      this.props.addTodo({
+      // send new todo to callback provided by AddTodo container
+      this.props.onSubmit({
         title: this.state.title,
         description: this.state.description,
         priority: this.state.priority
