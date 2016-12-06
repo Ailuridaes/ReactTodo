@@ -25,3 +25,10 @@ export const setVisibilityFilter = (filter) => {
     payload: { filter: filter }
   }
 }
+
+export const setSortProperty = (property) => {
+  return {
+    type: 'SET_SORT_PROPERTY',
+    payload: { property: property }
+  }
+}

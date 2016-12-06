@@ -1,6 +1,7 @@
 import React from 'react';
-import ArrangedTodoList from '../containers/ArrangedTodoList';
 import AddTodo from '../containers/AddTodo';
+import ArrangedTodoList from '../containers/ArrangedTodoList';
+import DisplayOptionControls from './DisplayOptionControls';
 import { Grid, Row, Col } from 'react-bootstrap';
 import logo from '../logo.svg';
 import '../App.css';
@@ -19,6 +20,7 @@ class App extends React.Component {
               <AddTodo />
             </Col>
             <Col md={8}>
+              <DisplayOptionControls />
               <ArrangedTodoList />
             </Col>
           </Row>

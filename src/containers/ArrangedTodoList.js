@@ -37,15 +37,13 @@ const sortFunction = (todoA, todoB, sortProperty) => {
 };
 
 const getSortedTodos = (todos, sortProperty) => {
-  return {
-    todos: todos.sort((a,b) => sortFunction(a, b, sortProperty))
-  }
+  return todos.sort((a,b) => sortFunction(a, b, sortProperty));
 }
 
 const mapStateToProps = (state) => {
   return {
-    todos: getVisibleTodos(state.todos, state.visibilityFilter)
-    // todos: getSortedTodos(getVisibleTodos(state.todos, state.visibilityFilter), state.sortProperty)
+    todos: getSortedTodos(getVisibleTodos(state.todos, state.visibilityFilter), state.sortProperty)
+    // todos: getSortedTodos(state.todos, state.sortProperty)
   }
 };
 
