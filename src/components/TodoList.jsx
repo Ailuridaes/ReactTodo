@@ -1,13 +1,14 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodoList = ({ todos, onTodoClick }) => (
+//  TODO: move onTodoChecked into todo - pass as prop or make another container
+const TodoList = ({ todos, onTodoChecked }) => (
   <ul>
     {todos.map(todo =>
       <Todo
         key={todo.id}
         {...todo}
-        onClick={() => onTodoClick(todo.id)}
+        onChecked={() => onTodoChecked(todo.id)}
       />
     )}
   </ul>

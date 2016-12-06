@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (todo) => {
-      dispatch(addTodo(todo))
+      dispatch(addTodo(todo));
     }
   }
 };
