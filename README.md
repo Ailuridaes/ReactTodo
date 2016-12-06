@@ -1,9 +1,11 @@
 # ReactTodo
-### Simple Todo App created with React
+### Simple Todo App created with React and Redux
 
 ### Technologies Used:
 - Javascript
     + React
+    + Redux
+    + React Redux
 - HTML
 - CSS
     + [React-Bootstrap](https://react-bootstrap.github.io)
