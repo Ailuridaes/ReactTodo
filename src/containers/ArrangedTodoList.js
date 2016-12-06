@@ -37,7 +37,7 @@ const sortFunction = (todoA, todoB, sortProperty) => {
 };
 
 const getSortedTodos = (todos, sortProperty) => {
-  return todos.sort((a,b) => sortFunction(a, b, sortProperty));
+  return todos.slice(0).sort((a,b) => sortFunction(a, b, sortProperty));
 }
 
 const mapStateToProps = (state) => {
