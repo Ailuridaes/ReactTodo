@@ -1,7 +1,15 @@
 import React from 'react';
-import { Panel } from 'react-bootstrap';
+import { Panel, Checkbox } from 'react-bootstrap';
 
 class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isEditMode: false,
+      isExpanded: true
+    }
+  }
+
   render () {
     let priorityClass = '';
     let priorityText = '';
@@ -22,12 +30,21 @@ class Todo extends React.Component {
         break;
     }
 
+    const header = (
+      <div>
+        <Checkbox inline onClick={this.props.onChecked} style={{ verticalAlign: 'top' }} />
+        <span style={{ textDecoration: this.props.completed ? 'line-through' : 'none' }}>
+          {this.props.title}
+        </span>
+      </div>
+    );
+
     return (
-      <Panel header={this.props.title} bsStyle={priorityClass} collapsible>
+      <Panel header={header} bsStyle={this.props.completed ? 'default' : priorityClass}>
         <p>{this.props.description}</p>
         <strong>This task is {priorityText} priority.</strong>
       </Panel>
-    )
+    );
   }
 }
 

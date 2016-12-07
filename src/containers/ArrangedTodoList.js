@@ -1,5 +1,4 @@
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
 import TodoList from '../components/TodoList';
 
 const getVisibleTodos = (todos, filter) => {
@@ -47,17 +46,8 @@ const mapStateToProps = (state) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onTodoChecked: (id) => {
-      dispatch(toggleTodo(id))
-    }
-  }
-};
-
 const ArrangedTodoList = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(TodoList);
 
 export default ArrangedTodoList;
