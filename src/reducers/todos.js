@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions/actionTypes';
+import { ADD_TODO, TOGGLE_TODO, GET_TODOS_REQUEST, GET_TODOS_SUCCESS } from '../actions/actionTypes';
 
 const todo = (state = {}, action) => {
   switch (action.type) {
@@ -14,7 +14,7 @@ const todo = (state = {}, action) => {
   }
 }
 
-const todos = (state = [], action) => {
+const items = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -23,6 +23,35 @@ const todos = (state = [], action) => {
       ];
     case TOGGLE_TODO:
       return state.map(t => todo(t, action));
+    default:
+      return state;
+  }
+}
+
+// redefining todos as object with list of todo items, and API request status
+const todos = (state = {
+  items: [],
+  isFetching: false,
+  didInvalidate: true
+}, action) => {
+  switch (action.type) {
+    case GET_TODOS_REQUEST:
+      return Object.assign({}, state, {
+        isFetching: true,
+        didInvalidate: false
+      });
+    case GET_TODOS_SUCCESS:
+      return Object.assign({}, state, {
+        items: action.todos,
+        lastUpdated: action.receivedAt
+      })
+    // case ADD_TODO:
+    //   return [
+    //     ...state,
+    //     todo(undefined, action)
+    //   ];
+    // case TOGGLE_TODO:
+    //   return state.map(t => todo(t, action));
     default:
       return state;
   }
