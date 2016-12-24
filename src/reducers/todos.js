@@ -3,7 +3,7 @@ import { ADD_TODO, TOGGLE_TODO, GET_TODOS_REQUEST, GET_TODOS_SUCCESS } from '../
 const todo = (state = {}, action) => {
   switch (action.type) {
     case ADD_TODO:
-      return Object.assign({}, action.payload, { completed: false });
+      return Object.assign({}, action.payload, { priority: Number(action.payload.priority), completed: false });
     case TOGGLE_TODO:
       if (state.id !== action.payload.id) {
         return state;
@@ -44,8 +44,8 @@ const todos = (state = {
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: action.todos,
-        lastUpdated: action.receivedAt
+        items: action.payload.todos,
+        lastUpdated: action.payload.receivedAt
       });
     // case ADD_TODO:
     //   return [

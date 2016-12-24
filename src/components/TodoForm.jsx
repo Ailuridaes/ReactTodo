@@ -7,7 +7,7 @@ class TodoForm extends React.Component {
     this.state = {
       title: '',
       description: '',
-      priority: '2',
+      priority: '1',
       titleError: ''
     };
 
@@ -39,7 +39,7 @@ class TodoForm extends React.Component {
       this.setState({
         title: '',
         description: '',
-        priority: '2'
+        priority: '1'
       });
     } else {
       this.setState({
@@ -65,9 +65,9 @@ class TodoForm extends React.Component {
           <FormGroup>
             <ControlLabel>Priority</ControlLabel>
             <FormControl componentClass="select" name="priority" value={this.state.priority} onChange={this.handleChange}>
-              <option value="1">High</option>
-              <option value="2">Medium</option>
-              <option value="3">Low</option>
+              <option value="0">High</option>
+              <option value="1">Medium</option>
+              <option value="2">Low</option>
             </FormControl>
           </FormGroup>
           <Button type="submit" onClick={this.handleSubmit} bsStyle="primary">Submit</Button>

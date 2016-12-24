@@ -13,7 +13,7 @@ const getTodosSuccess = (json) => (
   {
     type: GET_TODOS_SUCCESS,
     payload: {
-      todos: json.data.children.map(child => child.data),
+      todos: json,
       receivedAt: Date.now()
     }
   }
@@ -23,9 +23,9 @@ export const getTodos = () => (
   function(dispatch) {
     dispatch(getTodosRequest());
     return fetch(API_URL)
-      .then(response => response.json)
+      .then(response => response.json())
       .then(json =>
-        dispatch(getTodosSuccess(json));
+        dispatch(getTodosSuccess(json))
       )
   }
-)
+);

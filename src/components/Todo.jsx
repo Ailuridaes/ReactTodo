@@ -15,15 +15,15 @@ class Todo extends React.Component {
     let priorityText = '';
 
     switch (this.props.priority) {
-      case '1':
+      case 0:
         priorityClass = "danger";
         priorityText = "high"
         break;
-      case '3':
+      case 2:
         priorityClass = "success";
         priorityText = "low";
         break;
-      case '2':
+      case 1:
       default:
         priorityClass = "warning";
         priorityText = "medium";

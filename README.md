@@ -1,6 +1,8 @@
 # ReactTodo
 ### Simple Todo App created with React and Redux
 
+Connects to the API in [this repository](https://github.com/Ailuridaes/SimpleTodoApi).
+
 ### Technologies Used:
 - Javascript
     + React
