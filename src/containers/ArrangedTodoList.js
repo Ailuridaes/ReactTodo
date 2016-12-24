@@ -41,7 +41,7 @@ const getSortedTodos = (todos, sortProperty) => {
 
 const mapStateToProps = (state) => {
   return {
-    todos: getSortedTodos(getVisibleTodos(state.todos, state.visibilityFilter), state.sortProperty)
+    todos: getSortedTodos(getVisibleTodos(state.todos.items, state.visibilityFilter), state.sortProperty)
     // todos: getSortedTodos(state.todos, state.sortProperty)
   }
 };

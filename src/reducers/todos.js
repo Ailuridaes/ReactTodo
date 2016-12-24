@@ -42,9 +42,11 @@ const todos = (state = {
       });
     case GET_TODOS_SUCCESS:
       return Object.assign({}, state, {
+        isFetching: false,
+        didInvalidate: false,
         items: action.todos,
         lastUpdated: action.receivedAt
-      })
+      });
     // case ADD_TODO:
     //   return [
     //     ...state,
