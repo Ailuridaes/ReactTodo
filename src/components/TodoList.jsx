@@ -6,7 +6,7 @@ const TodoList = ({ todos, onTodoChecked }) => (
   <ul>
     {todos.map(todo =>
       <TodoDisplay
-        key={todo.id}
+        key={todo.taskId}
         {...todo}
       />
     )}
