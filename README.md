@@ -6,6 +6,9 @@
     + React
     + Redux
     + React Redux
+    + Redux Thunk
+    + Isomorphic-Fetch
+    + ES6-Promise
 - HTML
 - CSS
     + [React-Bootstrap](https://react-bootstrap.github.io)
