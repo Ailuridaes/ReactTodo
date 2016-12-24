@@ -1,6 +1,8 @@
 # ReactTodo
 ### Simple Todo App created with React and Redux
 
+This branch is a standalone client-only version of the app. The master branch of this repository depends on an API connected to a database to store todo information.
+
 ### Technologies Used:
 - Javascript
     + React
