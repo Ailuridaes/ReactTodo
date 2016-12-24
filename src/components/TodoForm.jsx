@@ -33,7 +33,7 @@ class TodoForm extends React.Component {
       this.props.onSubmit({
         title: this.state.title,
         description: this.state.description,
-        priority: this.state.priority
+        priority: Number(this.state.priority)
       });
       // clear form
       this.setState({

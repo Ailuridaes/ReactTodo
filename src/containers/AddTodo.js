@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addTodo } from '../actions';
+import { postTodo } from '../actions/apiActions';
 import TodoForm from '../components/TodoForm';
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSubmit: (todo) => {
-      dispatch(addTodo(todo));
+      dispatch(postTodo(todo));
     }
   }
 };
