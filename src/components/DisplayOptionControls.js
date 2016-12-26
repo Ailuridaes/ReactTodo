@@ -7,21 +7,21 @@ const DisplayOptionControls = () => (
   <ButtonToolbar>
     <ButtonGroup style={{marginBottom: 20}}>
       <SortButton propertyName="title">
-	Sort Alphabetically
+	      Sort Alphabetically
       </SortButton>
       <SortButton propertyName="priority">
-	Sort by Priority
+	      Sort by Priority
       </SortButton>
     </ButtonGroup>
     <ButtonGroup style={{marginBottom: 20}}>
       <FilterButton propertyName="SHOW_ALL">
-	Show All
+	      Show All
       </FilterButton>
       <FilterButton propertyName="SHOW_ACTIVE">
-	Show Active
+	      Show Active
       </FilterButton>
       <FilterButton propertyName="SHOW_COMPLETED">
-	Show Completed
+	      Show Completed
       </FilterButton>
     </ButtonGroup>
   </ButtonToolbar>

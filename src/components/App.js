@@ -1,13 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import AddTodo from '../containers/AddTodo';
 import ArrangedTodoList from '../containers/ArrangedTodoList';
 import DisplayOptionControls from './DisplayOptionControls';
+import Loader from './Loader';
 import { Grid, Row, Col } from 'react-bootstrap';
 import logo from '../logo.svg';
 import '../App.css';
 
 class App extends React.Component {
   render() {
+    let listCol = null;
+    if(this.props.isLoading) {
+      listCol = <Loader />;
+    } else {
+      listCol = (
+        <div>
+          <DisplayOptionControls />
+          <ArrangedTodoList />
+        </div>
+      );
+    }
+
     return (
       <div className="App">
         <div className="App-header">
@@ -20,8 +34,7 @@ class App extends React.Component {
               <AddTodo />
             </Col>
             <Col md={8}>
-              <DisplayOptionControls />
-              <ArrangedTodoList />
+              { listCol }
             </Col>
           </Row>
         </Grid>
@@ -29,5 +42,13 @@ class App extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isLoading: state.todos.isFetching
+  }
+};
+
+App = connect(mapStateToProps)(App);
 
 export default App;
