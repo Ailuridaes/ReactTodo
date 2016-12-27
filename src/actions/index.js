@@ -14,13 +14,6 @@ export const addTodo = (todo) => (
   }
 );
 
-export const toggleTodo = (id) => (
-  {
-    type: TOGGLE_TODO,
-    payload: { id: id }
-  }
-);
-
 export const setSortProperty = (property) => (
   {
     type: SET_SORT_PROPERTY,

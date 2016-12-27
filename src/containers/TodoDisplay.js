@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { toggleTodo } from '../actions';
+import { updateTodo } from '../actions/apiActions';
 import Todo from '../components/Todo';
 
 const mapStateToProps = (state, ownProps) => {
@@ -9,7 +9,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onChecked: () => {
-      dispatch(toggleTodo(ownProps.id));
+      dispatch(updateTodo(Object.assign({}, ownProps, {
+        isCompleted: !ownProps.isCompleted
+      })));
     }
   }
 };

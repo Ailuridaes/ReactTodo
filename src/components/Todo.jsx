@@ -32,16 +32,16 @@ class Todo extends React.Component {
 
     const header = (
       <div>
-        <Checkbox inline onClick={this.props.onChecked} style={{ verticalAlign: 'top' }} />
-        <span style={{ textDecoration: this.props.completed ? 'line-through' : 'none' }}>
-          {this.props.title}
+        <Checkbox inline onClick={ this.props.onChecked } checked={ this.props.isCompleted } style={{ verticalAlign: 'top' }} />
+        <span style={{ textDecoration: this.props.isCompleted ? 'line-through' : 'none' }}>
+          { this.props.title }
         </span>
       </div>
     );
 
     return (
-      <Panel header={header} bsStyle={this.props.completed ? 'default' : priorityClass}>
-        <p>{this.props.description}</p>
+      <Panel header={header} bsStyle={ this.props.isCompleted ? 'default' : priorityClass }>
+        <p>{ this.props.description }</p>
         <strong>This task is {priorityText} priority.</strong>
       </Panel>
     );

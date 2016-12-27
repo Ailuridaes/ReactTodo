@@ -1,15 +1,15 @@
-import { POST_TODO_SUCCESS, TOGGLE_TODO, GET_TODOS_REQUEST, GET_TODOS_SUCCESS } from '../actions/actionTypes';
+import { GET_TODOS_REQUEST, GET_TODOS_SUCCESS, POST_TODO_SUCCESS, UPDATE_TODO_SUCCESS } from '../actions/actionTypes';
 
 const todo = (state = {}, action) => {
   switch (action.type) {
     case POST_TODO_SUCCESS:
       // Keep this in todo, so can handle request-state for individual todos
       return action.payload;
-    case TOGGLE_TODO:
-      if (state.id !== action.payload.id) {
+    case UPDATE_TODO_SUCCESS:
+      if (state.taskId !== action.payload.taskId) {
         return state;
       }
-      return Object.assign({}, state, { completed: !state.completed });
+      return Object.assign({}, state, action.payload);
     default:
       return state;
   }
@@ -22,7 +22,7 @@ const items = (state = [], action) => {
         ...state,
         todo(undefined, action)
       ];
-    case TOGGLE_TODO:
+    case UPDATE_TODO_SUCCESS:
       return state.map(t => todo(t, action));
     default:
       return state;
@@ -49,11 +49,10 @@ const todos = (state = {
         lastUpdated: action.payload.receivedAt
       });
     case POST_TODO_SUCCESS:
+    case UPDATE_TODO_SUCCESS:
       return Object.assign({}, state, {
         items: items(state.items, action)
       });
-    case TOGGLE_TODO:
-      return state.map(t => todo(t, action));
     default:
       return state;
   }
